@@ -21,7 +21,8 @@ print(sigmoid(30.0004))
 print(sigmoid(-100.005))
 
 def predict(X, theta):
-      return(sigmoid(np.dot(X, theta)))
+	z=np.array(np.dot(X, theta),dtype=np.float32)
+	return(sigmoid(z))
 
 def cost(X, y, theta):
     return((-1 / X.shape[0]) * np.sum(y * np.log(predict(X, theta)) + (1 - y) * np.log(1 - predict(X, theta))))
@@ -30,4 +31,4 @@ X = np.c_[np.ones(X.shape[0]), X]
 print (X)
 
 theta = np.zeros(3, dtype=float)
-cost(X, y, theta)
+predict(X, theta)
