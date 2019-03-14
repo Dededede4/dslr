@@ -1,0 +1,44 @@
+{'teta': -0.6765052428695969, 'err': 0.6670355652320051, 'house': 'Ravenclaw', 'feature': 'Herbology'}
+{'teta': -0.624562450648699, 'err': 0.56613625206547, 'house': 'Slytherin', 'feature': 'Herbology'}
+{'teta': -0.6276382840478311, 'err': 0.5719505593191986, 'house': 'Gryffindor', 'feature': 'Herbology'}
+{'teta': -0.689139411023719, 'err': 0.6924230421674885, 'house': 'Hufflepuff', 'feature': 'Herbology'}
+{'teta': -0.6878300271492086, 'err': 0.6884786062638375, 'house': 'Ravenclaw', 'feature': 'Defense Against the Dark Arts'}
+{'teta': -0.6626456608408768, 'err': 0.638382881931154, 'house': 'Slytherin', 'feature': 'Defense Against the Dark Arts'}
+{'teta': -0.6366837242307177, 'err': 0.5881116461408071, 'house': 'Gryffindor', 'feature': 'Defense Against the Dark Arts'}
+{'teta': -0.646231778846752, 'err': 0.6064348058162934, 'house': 'Hufflepuff', 'feature': 'Defense Against the Dark Arts'}
+{'teta': -0.6634791012873426, 'err': 0.6425699689989138, 'house': 'Ravenclaw', 'feature': 'Divination'}
+{'teta': -0.6110751399947537, 'err': 0.541985185529031, 'house': 'Slytherin', 'feature': 'Divination'}
+{'teta': -0.6463330031929447, 'err': 0.6090078884356717, 'house': 'Gryffindor', 'feature': 'Divination'}
+{'teta': -0.6763097391237242, 'err': 0.668086387221104, 'house': 'Hufflepuff', 'feature': 'Divination'}
+{'teta': -0.6999634119638717, 'err': 0.7108765132081956, 'house': 'Ravenclaw', 'feature': 'Muggle Studies'}
+{'teta': -0.6486240946485118, 'err': 0.6092646376259493, 'house': 'Slytherin', 'feature': 'Muggle Studies'}
+{'teta': -0.6502914779519375, 'err': 0.6124803763939736, 'house': 'Gryffindor', 'feature': 'Muggle Studies'}
+{'teta': -0.6610001643054811, 'err': 0.6332709089550536, 'house': 'Hufflepuff', 'feature': 'Muggle Studies'}
+{'teta': -0.6847428396905789, 'err': 0.6814649343881406, 'house': 'Ravenclaw', 'feature': 'Ancient Runes'}
+{'teta': -0.6373493495518965, 'err': 0.5887170406816983, 'house': 'Slytherin', 'feature': 'Ancient Runes'}
+{'teta': -0.6682624293374496, 'err': 0.6486894425779197, 'house': 'Gryffindor', 'feature': 'Ancient Runes'}
+{'teta': -0.6491601040214858, 'err': 0.6113942921890754, 'house': 'Hufflepuff', 'feature': 'Ancient Runes'}
+{'teta': -0.6675572512248485, 'err': 0.6490529862111468, 'house': 'Ravenclaw', 'feature': 'History of Magic'}
+{'teta': -0.6460189385947931, 'err': 0.6069410142529452, 'house': 'Slytherin', 'feature': 'History of Magic'}
+{'teta': -0.6210458935046226, 'err': 0.5593493746087072, 'house': 'Gryffindor', 'feature': 'History of Magic'}
+{'teta': -0.6798756787810533, 'err': 0.6735692574435319, 'house': 'Hufflepuff', 'feature': 'History of Magic'}
+{'teta': -0.6640308172823575, 'err': 0.6442117226532889, 'house': 'Ravenclaw', 'feature': 'Transfiguration'}
+{'teta': -0.639624183044858, 'err': 0.5965458160092796, 'house': 'Slytherin', 'feature': 'Transfiguration'}
+{'teta': -0.6127729287997551, 'err': 0.5455954920597079, 'house': 'Gryffindor', 'feature': 'Transfiguration'}
+{'teta': -0.6767276897361103, 'err': 0.669502768778479, 'house': 'Hufflepuff', 'feature': 'Transfiguration'}
+{'teta': -0.6641235935174684, 'err': 0.6419446418198151, 'house': 'Ravenclaw', 'feature': 'Potions'}
+{'teta': -0.6523636581589604, 'err': 0.6189305739664047, 'house': 'Slytherin', 'feature': 'Potions'}
+{'teta': -0.6343455753196308, 'err': 0.5842349298766671, 'house': 'Gryffindor', 'feature': 'Potions'}
+{'teta': -0.6617884866139758, 'err': 0.6373519765449912, 'house': 'Hufflepuff', 'feature': 'Potions'}
+{'teta': -0.6618966276011452, 'err': 0.6365094275980981, 'house': 'Ravenclaw', 'feature': 'Care of Magical Creatures'}
+{'teta': -0.6440633170691814, 'err': 0.6018803172108601, 'house': 'Slytherin', 'feature': 'Care of Magical Creatures'}
+{'teta': -0.6478211222943026, 'err': 0.6091218684028845, 'house': 'Gryffindor', 'feature': 'Care of Magical Creatures'}
+{'teta': -0.6699922207045182, 'err': 0.6524472473381667, 'house': 'Hufflepuff', 'feature': 'Care of Magical Creatures'}
+{'teta': -0.6948100706172088, 'err': 0.7025920892670144, 'house': 'Ravenclaw', 'feature': 'Charms'}
+{'teta': -0.6358038750453429, 'err': 0.5864360692869267, 'house': 'Slytherin', 'feature': 'Charms'}
+{'teta': -0.6334952323175633, 'err': 0.582039278440191, 'house': 'Gryffindor', 'feature': 'Charms'}
+{'teta': -0.6675862083301023, 'err': 0.648112088990747, 'house': 'Hufflepuff', 'feature': 'Charms'}
+{'teta': -0.65963032469066, 'err': 0.631343728409502, 'house': 'Ravenclaw', 'feature': 'Flying'}
+{'teta': -0.6387104951092935, 'err': 0.5909495930541164, 'house': 'Slytherin', 'feature': 'Flying'}
+{'teta': -0.6792106811352451, 'err': 0.6699703711853114, 'house': 'Gryffindor', 'feature': 'Flying'}
+{'teta': -0.6650394167779674, 'err': 0.6419362401318792, 'house': 'Hufflepuff', 'feature': 'Flying'}
