@@ -60,4 +60,7 @@ print (X.shape, theta.shape, mask_Ravenclaw.shape)
 print (theta, J_history = fit(X, mask_Ravenclaw, theta, 0.001, 1000))
 
 #defense contre les force du mal
-#
+#herboristery
+#ancien rhune
+#astronomie
+
