@@ -1,82 +1,62 @@
 import pandas as pd
-from matplotlib import pyplot as plt
+import numpy as np
+#from matplotlib import pyplot as plt
 import math;
 #sns.set(style="ticks", color_codes=True)
 df = pd.read_csv('dataset_train.csv')
 
-df = df.dropna()
+data = pd.read_csv("dataset_train.csv")
+data = data.drop(columns = ['First Name', 'Last Name', 'Birthday', 'Best Hand'])
+data = data.drop(columns = ['Arithmancy', 'Care of Magical Creatures', 'Astronomy'])
+data = data.dropna()
 
-# Retourne la probabilté entre 0 et un que ce soit une maison
-def g(z):
-  return 1 / (1 + math.exp(0 - z))
+def sigmoid(z):
+    return (1 / (1 + np.exp(-z)))
 
-def h(teta, x):
-	return g(teta * x)
+def predict(X, theta):
+    res = sigmoid(np.dot(X, theta.T))
+    return(res)
 
-def log42(x):
-	return (math.log(x))
+def cost(X, y, theta):
+    return((-1 / X.shape[0]) * np.sum(y * np.log(predict(X, theta)) + (1 - y) * np.log(1 - predict(X, theta))))
 
-def j(teta, df, house, feature):
-	mini = df[feature].min()
-	maxi = df[feature].max()
-	ratio = maxi - mini;
-	result = 0
-	l = 0
-	for i in df.index:
-		l = l + 1
-		y = 0
-		x = df.at[i, feature]
-		x =  ((x - mini) / ratio) * 100
-		if df.at[i, 'Hogwarts House'] == house:
-			y = 1
-		print([df.at[i, feature], x, y, ((0 - y) * log42(h(teta, x)) - (1 - y) * log42((1 - h(teta, x))))])
-		result = result + ((0 - y) * log42(h(teta, x)) - (1 - y) * log42((1 - h(teta, x))))
-	return result / len(df)
-
-def trainning(df, house, feature):
-	teta = 0
-	a = 0.00001
-	i = 0
-	while (i < 1000):
-		err =  j(teta, df, house, feature)
-		print(err)
-		teta = teta - a * err
-		i = i + 1
-	return {'teta' : teta, 'err' : j(teta, df, house, feature), 'house' : house, 'feature' : feature }
-
-teta = trainning(df, 'Ravenclaw', 'Charms')
-for index, row in df.iterrows():
-	y = 0
-	x = row['Charms']
-	if row['Hogwarts House'] == 'Ravenclaw':
-		y = 1
-	plt.scatter(x, y)
-
-mini = df['Charms'].min()
-maxi = df['Charms'].max()
-ratio = maxi - mini;
-
-step = ratio / 1000
-i = 0
+def fit(X, y, theta, alpha, num_iters):
+    m = X.shape[0]
+    J_history = []
+    for _ in range(num_iters):
+        theta = theta - (alpha / m) * (np.dot(predict(X, theta) - y, X))
+        J_history.append(cost(X, y, theta))
+    return theta, J_history
 
 
+def normalise(x):
+    return (x - np.mean(x)) / np.std(x)
 
-while (i < 1000):
-	x = mini + i * step
-	x = ((x - mini) / ratio) * 100
-	plt.scatter(mini + i * step, h(teta['teta'], x))
-	i = i + 1
+X = data.values[:, 7:9]
+X = np.column_stack((data['Herbology'] ,data['Defense Against the Dark Arts']))
+y = np.column_stack(data['Hogwarts House'])
+X = normalise(X)
+X = np.c_[np.ones(X.shape[0]), X]
 
-print(teta['teta'])
+mask_Ravenclaw = y == "Ravenclaw"
+mask_Gryffindor = y == "Gryffindor"
+mask_Hufflepuff = y == "Hufflepuff"
+mask_Slytherin = y == "Slytherin"
+theta = np.zeros(3)
 
-plt.show()
+theta = np.zeros(3, dtype=float)
+print (X.shape, theta.shape, y.shape)
+theta, J_history = fit(X, mask_Ravenclaw, theta, 0.001, 600)
+
+#fig = plt.figure()
+#ax = plt.axes()
+#ax.plot(J_history)
 
 
-exit(0)
+p = [1, 5.727180, 4.878861]
+p = predict(p, theta)
+print (p)
 
-quats = ['Arithmancy', 'Astronomy', 'Herbology', 'Defense Against the Dark Arts', 'Divination', 'Muggle Studies', 'Ancient Runes', 'History of Magic', 'Transfiguration', 'Potions', 'Care of Magical Creatures', 'Charms', 'Flying']
-for i, quat in enumerate(quats):
-	print(trainning(df, 'Ravenclaw', quat))
-	print(trainning(df, 'Slytherin', quat))
-	print(trainning(df, 'Gryffindor', quat))
-	print(trainning(df, 'Hufflepuff', quat))
+a = [1, -5.987446, 5.520605]
+a = predict(a, theta)
+print (a)
