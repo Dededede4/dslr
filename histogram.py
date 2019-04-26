@@ -25,5 +25,6 @@ plt.hist([
 	iris[iris['Hogwarts House'] == 'Slytherin']['Care of Magical Creatures'],
 ], n_bins, density=True, histtype='bar')
 
+plt.xlabel('Care of Magical Creatures')
 
 plt.show()
