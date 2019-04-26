@@ -8,5 +8,6 @@ iris = pd.read_csv('dataset_train.csv')
 iris = iris.dropna()
 
 g = plt.plot(iris['Astronomy'], iris['Defense Against the Dark Arts'])
-
+plt.xlabel('Astronomy')
+plt.ylabel('Defense Against the Dark Arts')
 plt.show()
