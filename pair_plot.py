@@ -9,4 +9,7 @@ iris = iris.dropna()
 iris.pop('Index')
 g = sns.pairplot(iris, hue="Hogwarts House", height=1)
 
+plt.xlabel('Hogwarts House')
+
+
 plt.show()
