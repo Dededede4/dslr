@@ -4,6 +4,8 @@ import csv
 from Ft_logistic_regression import Ft_logistic_regression
 import argparse
 
+
+
 def get_value(thetas, elem):
     test = [1] + elem[2:]
     for i, v in enumerate(test):
@@ -12,7 +14,7 @@ def get_value(thetas, elem):
     return np.dot(thetas, test)
 
 def predict():
-    raw_data = pd.read_csv('data/dataset_test.csv',delimiter=',')
+    raw_data = pd.read_csv('dataset_test.csv',delimiter=',')
     data = raw_data.drop(columns = ['First Name', 'Last Name', 'Birthday', 'Best Hand'])
     data = data.drop(columns = ['Arithmancy', 'Care of Magical Creatures', 'Astronomy'])
     hogwarts = data.copy()
@@ -42,18 +44,21 @@ def predict():
     f = open('houses.csv', 'w+')
     f.write(file_content)
     f.close()
-def main():
-    parser = argparse.ArgumentParser()
-    parser.add_argument("path", type=str, default="none", help="dataset_train.csv")
-    parser.add_argument("path2", type=str, default="none", help="thetas.csv")
-    args = parser.parse_args()
-    try:
-        if (args.path == "dataset_test.csv" and args.path2 == "thetas.csv"):
-            predict()
-        else:
-            print("wrong path")
-    except:
-        print("Error")
 
-if __name__ == '__main__':
-    main()
+predict()
+
+# def main():
+#     # parser = argparse.ArgumentParser()
+#     # parser.add_argument("path", type=str, default="none", help="dataset_train.csv")
+#     # parser.add_argument("path2", type=str, default="none", help="thetas.csv")
+#     # args = parser.parse_args()
+#     # try:
+#     #     if (args.path == "dataset_test.csv" and args.path2 == "thetas.csv"):
+#     predict()
+#         # else:
+#             # print("wrong path")
+#     # except:
+#         # print("Error")
+
+# if __name__ == '__main__':
+#     main()

@@ -13,8 +13,7 @@ def main():
     parser = argparse.ArgumentParser(description='j\'suis un choixpeau magic')
     parser.add_argument('-s', '--scrypt', type=str, dest="scrypt", choices=['describe', 'histogram', 'scatter_plot', 'pair_plot'],
     help="function scrypt")
-    parser.add_argument(type=str, dest="dataset",
-                             help="describe dataset")
+    parser.add_argument(type=str, dest="dataset", help="describe dataset")
 
     opt = parser.parse_args()
     if (opt.scrypt == 'describe'):
