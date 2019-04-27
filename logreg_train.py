@@ -29,6 +29,7 @@ def fit(X, y, theta, alpha, num_iters):
     return theta, J_history
 
 
+
 def normalise(x):
     return (x - np.mean(x)) / np.std(x)
 
@@ -44,19 +45,14 @@ mask_Hufflepuff = y == "Hufflepuff"
 mask_Slytherin = y == "Slytherin"
 theta = np.zeros(3)
 
-theta = np.zeros(3, dtype=float)
-print (X.shape, theta.shape, y.shape)
-theta, J_history = fit(X, mask_Ravenclaw, theta, 0.001, 600)
+theta = np.zeros(X.shape[1], dtype=float)
+thetaR, J_historyR = fit(X, mask_Ravenclaw, theta, 0.001, 600)
+theta = np.zeros(X.shape[1], dtype=float)
+thetaG, J_historyG = fit(X, mask_Gryffindor, theta, 0.001, 600)
+theta = np.zeros(X.shape[1], dtype=float)
+thetaH, J_historyH = fit(X, mask_Hufflepuff, theta, 0.001, 600)
+theta = np.zeros(X.shape[1], dtype=float)
+thetaS, J_historyS = fit(X, mask_Slytherin, theta, 0.001, 600)
 
-#fig = plt.figure()
-#ax = plt.axes()
-#ax.plot(J_history)
-
-
-p = [1, 5.727180, 4.878861]
-p = predict(p, theta)
-print (p)
-
-a = [1, -5.987446, 5.520605]
-a = predict(a, theta)
-print (a)
+thetas = np.array([thetaG[X.shape[0]-1], thetaS[X.shape[0]-1], thetaH[X.shape[0]-1], thetaR[X.shape[0]-1]])
+np.savetxt('thetas.csv', thetas, delimiter=',')
