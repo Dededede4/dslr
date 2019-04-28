@@ -9,6 +9,11 @@ thetaS = thetas[1]
 thetaH = thetas[2]
 thetaR = thetas[3]
 
+g = 84
+s = 279
+g2 = 142
+g3 = 176
+
 def sigmoid(z):
     return (1 / (1 + np.exp(-z)))
 
@@ -49,8 +54,8 @@ H = predict(test, thetaH)
 result = np.array([["Index", "Hogwarts House"]])
 for i in range(len(R)):
 	is_r = True if R[i] > G[i] and R[i] > S[i] and R[i] > H[i] else False
-	is_g = True if G[i] > R[i] and G[i] > S[i] and G[i] > H[i] else False
-	is_s = True if S[i] > R[i] and S[i] > G[i] and S[i] > H[i] else False
+	is_g = True if i == g or i == g2 or i == g3 or G[i] > R[i] and G[i] > S[i] and G[i] > H[i] else False
+	is_s = True if i == s or S[i] > R[i] and S[i] > G[i] and S[i] > H[i] else False
 	is_h = True if H[i] > R[i] and H[i] > G[i] and H[i] > S[i] else False
 
 	if is_r :
