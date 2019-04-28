@@ -20,13 +20,24 @@ test = pd.read_csv("dataset_test.csv")
 
 ids = test['Index']
 
-
 test = test.drop(columns = ['Hogwarts House'])
 
 test = test.drop(columns = ['First Name', 'Last Name', 'Birthday', 'Best Hand', 'Index'])
 test = test.drop(columns = ['Arithmancy', 'Care of Magical Creatures', 'Astronomy'])
 test = np.column_stack((test['Herbology'] ,test['Defense Against the Dark Arts']))
 # test = test.dropna() #aulieu de dropna il faut fire la tang
+
+a = 0
+while a < test.shape[0]:
+    if np.isnan(test[a][0]):
+        print (test[a][0])
+        test[a][0] = 5.055295
+        print (test[a][0])
+    if np.isnan(test[a][1]):
+        print (test[a][1])
+        test[a][1] = 5.118762
+        print (test[a][1])
+    a += 1
 
 test = np.c_[np.ones(test.shape[0]), test]
 
