@@ -24,22 +24,40 @@ test = test.drop(columns = ['Hogwarts House'])
 
 test = test.drop(columns = ['First Name', 'Last Name', 'Birthday', 'Best Hand', 'Index'])
 test = test.drop(columns = ['Arithmancy', 'Care of Magical Creatures', 'Astronomy'])
-# test = test.drop(columns = ['Divination', 'Muggle Studies', 'History of Magic'])
-# test = test.drop(columns = ['Transfiguration', 'Potions', 'Flying'])
+# 'Divination', 'Muggle Studies', 'History of Magic', 'Transfiguration', 'Potions', 'Flying'])
 
-# col_mean = np.nanstd(test['Herbology'], axis=0)
-# test['Herbology'][np.isnan(test['Herbology'])] = col_mean
+col_mean = np.nanstd(test['Herbology'], axis=0)
+test['Herbology'][np.isnan(test['Herbology'])] = col_mean
 
-# col_mean = np.nanstd(test['Defense Against the Dark Arts'], axis=0)
-# test['Defense Against the Dark Arts'][np.isnan(test['Defense Against the Dark Arts'])] = col_mean
+col_mean = np.nanstd(test['Defense Against the Dark Arts'], axis=0)
+test['Defense Against the Dark Arts'][np.isnan(test['Defense Against the Dark Arts'])] = col_mean
 
-# a = 0
+col_mean = np.nanstd(test['Divination'], axis=0)
+test['Divination'][np.isnan(test['Divination'])] = col_mean
+
+col_mean = np.nanstd(test['Muggle Studies'], axis=0)
+test['Muggle Studies'][np.isnan(test['Muggle Studies'])] = col_mean
+
+col_mean = np.nanstd(test['History of Magic'], axis=0)
+test['History of Magic'][np.isnan(test['History of Magic'])] = col_mean
+
+col_mean = np.nanstd(test['Transfiguration'], axis=0)
+test['Transfiguration'][np.isnan(test['Transfiguration'])] = col_mean
+
+col_mean = np.nanstd(test['Potions'], axis=0)
+test['Potions'][np.isnan(test['Potions'])] = col_mean
+
+col_mean = np.nanstd(test['Flying'], axis=0)
+test['Flying'][np.isnan(test['Flying'])] = col_mean
+
+# a = 0
 # while a < 11:
 # 	col_mean = np.nanstd(test[a], axis=0)
-# 	test[a][np.isnan(test[a])] = col_mean
-# 	a += 1
+# 	test[a][np.isnan(test[a])] = col_mean
+#	a += 1
 
 # test = np.column_stack((test['Herbology'] ,test['Defense Against the Dark Arts']))
+
 test = np.c_[np.ones(test.shape[0]), test]
 
 
