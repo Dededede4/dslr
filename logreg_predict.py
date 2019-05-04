@@ -50,6 +50,14 @@ test['Potions'][np.isnan(test['Potions'])] = col_mean
 col_mean = np.nanstd(test['Flying'], axis=0)
 test['Flying'][np.isnan(test['Flying'])] = col_mean
 
+print (test)
+
+def normalise(x):
+    return (x - np.mean(x)) / np.std(x)
+
+test = normalise(test)
+
+
 # a = 0
 # while a < 11:
 # 	col_mean = np.nanstd(test[a], axis=0)
@@ -65,6 +73,7 @@ R = predict(test, thetaR)
 G = predict(test, thetaG)
 S = predict(test, thetaS)
 H = predict(test, thetaH)
+
 
 
 result = np.array([["Index", "Hogwarts House"]])
