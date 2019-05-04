@@ -24,19 +24,22 @@ test = test.drop(columns = ['Hogwarts House'])
 
 test = test.drop(columns = ['First Name', 'Last Name', 'Birthday', 'Best Hand', 'Index'])
 test = test.drop(columns = ['Arithmancy', 'Care of Magical Creatures', 'Astronomy'])
-test = test.drop(columns = ['Divination', 'Muggle Studies', 'History of Magic'])
-test = test.drop(columns = ['Transfiguration', 'Potions', 'Flying'])
+# test = test.drop(columns = ['Divination', 'Muggle Studies', 'History of Magic'])
+# test = test.drop(columns = ['Transfiguration', 'Potions', 'Flying'])
 
-col_mean = np.nanstd(test['Herbology'], axis=0)
-# print (col_mean)
-test['Herbology'][np.isnan(test['Herbology'])] = col_mean
+# col_mean = np.nanstd(test['Herbology'], axis=0)
+# test['Herbology'][np.isnan(test['Herbology'])] = col_mean
 
-col_mean = np.nanstd(test['Defense Against the Dark Arts'], axis=0)
-# print (col_mean)
-test['Defense Against the Dark Arts'][np.isnan(test['Defense Against the Dark Arts'])] = col_mean
+# col_mean = np.nanstd(test['Defense Against the Dark Arts'], axis=0)
+# test['Defense Against the Dark Arts'][np.isnan(test['Defense Against the Dark Arts'])] = col_mean
 
+# a = 0
+# while a < 11:
+# 	col_mean = np.nanstd(test[a], axis=0)
+# 	test[a][np.isnan(test[a])] = col_mean
+# 	a += 1
 
-test = np.column_stack((test['Herbology'] ,test['Defense Against the Dark Arts']))
+# test = np.column_stack((test['Herbology'] ,test['Defense Against the Dark Arts']))
 test = np.c_[np.ones(test.shape[0]), test]
 
 

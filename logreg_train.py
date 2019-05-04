@@ -7,8 +7,8 @@ np.set_printoptions(formatter={'float': lambda x: "{0:0.6f}".format(x)})
 data = pd.read_csv("dataset_train.csv")
 data = data.drop(columns = ['First Name', 'Last Name', 'Birthday', 'Best Hand', 'Index'])
 data = data.drop(columns = ['Arithmancy', 'Care of Magical Creatures', 'Astronomy'])
-data = data.drop(columns = ['Divination', 'Muggle Studies', 'History of Magic'])
-data = data.drop(columns = ['Transfiguration', 'Potions', 'Flying', 'Charms', 'Ancient Runes'])
+# data = data.drop(columns = ['Divination', 'Muggle Studies', 'History of Magic'])
+# data = data.drop(columns = ['Transfiguration', 'Potions', 'Flying', 'Charms', 'Ancient Runes'])
 data = data.dropna()
 
 def sigmoid(z):
@@ -32,7 +32,9 @@ def fit(X, y, theta, alpha, num_iters):
 def normalise(x):
     return (x - np.mean(x)) / np.std(x)
 
-X = np.column_stack((data['Herbology'] ,data['Defense Against the Dark Arts']))
+# X = np.column_stack((data['Herbology'] ,data['Defense Against the Dark Arts']))
+X = data.copy()
+X = X.drop(columns = ['Hogwarts House'])
 y = np.column_stack(data['Hogwarts House'])
 X = normalise(X)
 X = np.c_[np.ones(X.shape[0]), X]
