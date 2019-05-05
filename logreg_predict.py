@@ -23,7 +23,7 @@ ids = test['Index']
 test = test.drop(columns = ['Hogwarts House'])
 
 test = test.drop(columns = ['First Name', 'Last Name', 'Birthday', 'Best Hand', 'Index'])
-test = test.drop(columns = ['Arithmancy', 'Care of Magical Creatures', 'Astronomy'])
+test = test.drop(columns = ['Arithmancy', 'Care of Magical Creatures', 'Flying', 'Potions', 'Charms', 'Transfiguration'])#, 'Astronomy'])
 # 'Divination', 'Muggle Studies', 'History of Magic', 'Transfiguration', 'Potions', 'Flying'])
 
 col_mean = np.nanstd(test['Herbology'], axis=0)
@@ -41,16 +41,25 @@ test['Muggle Studies'][np.isnan(test['Muggle Studies'])] = col_mean
 col_mean = np.nanstd(test['History of Magic'], axis=0)
 test['History of Magic'][np.isnan(test['History of Magic'])] = col_mean
 
-col_mean = np.nanstd(test['Transfiguration'], axis=0)
-test['Transfiguration'][np.isnan(test['Transfiguration'])] = col_mean
+# col_mean = np.nanstd(test['Transfiguration'], axis=0)
+# test['Transfiguration'][np.isnan(test['Transfiguration'])] = col_mean
 
-col_mean = np.nanstd(test['Potions'], axis=0)
-test['Potions'][np.isnan(test['Potions'])] = col_mean
+# col_mean = np.nanstd(test['Potions'], axis=0)
+# test['Potions'][np.isnan(test['Potions'])] = col_mean
 
-col_mean = np.nanstd(test['Flying'], axis=0)
-test['Flying'][np.isnan(test['Flying'])] = col_mean
+# col_mean = np.nanstd(test['Flying'], axis=0)
+# test['Flying'][np.isnan(test['Flying'])] = col_mean
 
-print (test)
+col_mean = np.nanstd(test['Ancient Runes'], axis=0)
+test['Ancient Runes'][np.isnan(test['Ancient Runes'])] = col_mean
+
+# col_mean = np.nanstd(test['Charms'], axis=0)
+# test['Charms'][np.isnan(test['Charms'])] = col_mean
+
+col_mean = np.nanstd(test['Astronomy'], axis=0)
+test['Astronomy'][np.isnan(test['Astronomy'])] = col_mean
+
+
 
 def normalise(x):
     return (x - np.mean(x)) / np.std(x)

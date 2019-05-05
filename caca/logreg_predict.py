@@ -16,7 +16,8 @@ def get_value(thetas, elem):
 def predict():
     raw_data = pd.read_csv('dataset_test.csv',delimiter=',')
     data = raw_data.drop(columns = ['First Name', 'Last Name', 'Birthday', 'Best Hand'])
-    data = data.drop(columns = ['Arithmancy', 'Care of Magical Creatures', 'Astronomy'])
+    data = data.drop(columns = ['Arithmancy', 'Care of Magical Creatures'])#, 'Astronomy'])
+    # data = data.drop(columns = ['Flying', 'Potions'])
     hogwarts = data.copy()
     for key in hogwarts:
         if key != 'Index' and key != 'Hogwarts House':
