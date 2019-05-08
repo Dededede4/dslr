@@ -2,6 +2,24 @@ import pandas as pd
 import numpy as np
 from matplotlib import pyplot as plt
 from tqdm import tqdm
+
+from threading import Thread, RLock
+
+class calculator(Thread):
+
+    def __init__(self, mask, X):
+        Thread.__init__(self)
+        self.mask = mask
+        self.X = X
+
+    def run(self):
+        theta = np.zeros(self.X.shape[1], dtype=float)
+        thetaR, J_historyR = fit(self.X, self.mask, theta, 0.0001, 500)
+        self.theta = thetaR
+        self.history = J_historyR
+
+
+
 np.set_printoptions(formatter={'float': lambda x: "{0:0.6f}".format(x)})
 
 data = pd.read_csv("dataset_train.csv")
@@ -46,14 +64,32 @@ mask_Slytherin = y == "Slytherin"
 
 theta = np.zeros(X.shape[1])
 
-theta = np.zeros(X.shape[1], dtype=float)
-thetaR, J_historyR = fit(X, mask_Ravenclaw, theta, 0.0001, 500)
-theta = np.zeros(X.shape[1], dtype=float)
-thetaG, J_historyG = fit(X, mask_Gryffindor, theta, 0.0001, 500)
-theta = np.zeros(X.shape[1], dtype=float)
-thetaH, J_historyH = fit(X, mask_Hufflepuff, theta, 0.0001, 500)
-theta = np.zeros(X.shape[1], dtype=float)
-thetaS, J_historyS = fit(X, mask_Slytherin, theta, 0.0001, 500)
+threadR = calculator(mask_Ravenclaw, X)
+threadG = calculator(mask_Gryffindor, X)
+threadH = calculator(mask_Hufflepuff, X)
+threadS = calculator(mask_Slytherin, X)
+
+threadR.start()
+threadG.start()
+threadH.start()
+threadS.start()
+
+threadR.join()
+threadG.join()
+threadH.join()
+threadS.join()
+
+thetaR = threadR.theta
+J_historyR = threadR.history
+
+thetaG = threadG.theta
+J_historyG = threadG.history
+
+thetaH = threadH.theta
+J_historyH = threadH.history
+
+thetaS = threadS.theta
+J_historyS = threadS.history
 
 thetas = np.array([thetaG[X.shape[0]-1], thetaS[X.shape[0]-1], thetaH[X.shape[0]-1], thetaR[X.shape[0]-1]])
 np.savetxt('thetas.csv', thetas, delimiter=',')
