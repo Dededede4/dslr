@@ -133,27 +133,30 @@ def calc_min(col, spamreader):
 			smaller = row[col]
 	return smaller
 
+if (len(sys.argv) > 1):
+	try:
+		with open(sys.argv[1], newline='') as csvfile:
+			spamreader = csv.reader(csvfile, delimiter=',', quotechar='|')
+			datas = list(spamreader)
 
-with open(sys.argv[1], newline='') as csvfile:
-	spamreader = csv.reader(csvfile, delimiter=',', quotechar='|')
-	datas = list(spamreader)
+			print("\t\tmin\t\t\tmax\t\t\tstd\t\t\tcount\t\t\t25percent\t\t\t75percent\t\t\t50percent")
+			(cals_col(6, datas)) # Arithmancy
+			(cals_col(7, datas)) # Astronomy
+			(cals_col(8, datas)) # Herbology
+			(cals_col(9, datas)) # Defense Against the Dark
+			(cals_col(10, datas)) # Arts
+			(cals_col(11, datas)) # Divination
+			(cals_col(12, datas)) # Muggle Studies
+			(cals_col(13, datas)) # Ancient Runes
+			(cals_col(14, datas)) # History of Magic
+			(cals_col(15, datas)) # Transfiguration
+			(cals_col(16, datas)) # Potions
+			(cals_col(17, datas)) # Care of Magical Creatures
+			(cals_col(18, datas)) # Charms
+	except:
+		print("Error")
+else:
+	print ("need path of file")
 
-	print("min\tmax\tstd\tcount\t25percent\t75percent\t50percent")
-	(cals_col(6, datas)) # Arithmancy
-	(cals_col(7, datas)) # Astronomy
-	(cals_col(8, datas)) # Herbology
-	(cals_col(9, datas)) # Defense Against the Dark
-	(cals_col(10, datas)) # Arts
-	(cals_col(11, datas)) # Divination
-	(cals_col(12, datas)) # Muggle Studies
-	(cals_col(13, datas)) # Ancient Runes
-	(cals_col(14, datas)) # History of Magic
-	(cals_col(15, datas)) # Transfiguration
-	(cals_col(16, datas)) # Potions
-	(cals_col(17, datas)) # Care of Magical Creatures
-	(cals_col(18, datas)) # Charms
-	#print(cals_col(19, datas)) # Flying
-	#			 									
-	#for row in spamreader:
-		# print(row[6]) 
-	    #print(', "'.join(row)+'"')
+
+
